@@ -4,15 +4,28 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    //Explicit
+    private TextView txtQuestion;
+    private ImageView imvIshihara;
+    private RadioGroup ragChoice;
+    private RadioButton radChoice1, radChoice2, radChoice3, radChoice4;
+    private Button btnAnswer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+    }   //onCreate
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -35,4 +48,4 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+}   // Main Class นี่คือคลาสหลัก
