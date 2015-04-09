@@ -22,7 +22,7 @@ public class MainActivity extends ActionBarActivity {
     private RadioButton radChoice1, radChoice2, radChoice3, radChoice4;
     private Button btnAnswer;
     private int intRadio, intIndex;
-
+    private MyModel objMyModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,46 @@ public class MainActivity extends ActionBarActivity {
         // Radio Controller
         radioController();
 
+        //Interface MyModel
+        interfaceMyModel();
+
     }   //onCreate
+
+    private void interfaceMyModel() {
+        objMyModel = new MyModel();
+
+        //Change Image
+        objMyModel.setOnMyModelChangeListener(new MyModel.OnMyModelChangeListener() {
+            @Override
+            public void onMyModelChangeListener(MyModel myModel) {
+                changeView(myModel.getIntButton());
+            }
+        });
+
+    }
+
+    private void changeView(int intButton) {
+
+        //Change Image
+        int intDrawable[] = new int[]{R.drawable.ishihara_01, R.drawable.ishihara_02,
+                R.drawable.ishihara_03, R.drawable.ishihara_04, R.drawable.ishihara_05,
+                R.drawable.ishihara_06, R.drawable.ishihara_07, R.drawable.ishihara_08,
+                R.drawable.ishihara_09, R.drawable.ishihara_10};
+        imvIshihara.setImageResource(intDrawable[intButton]);
+
+        //Change Choice
+        int intTimes[] = new int[]{R.array.times1, R.array.times2, R.array.times3,
+                R.array.times4, R.array.times5, R.array.times6, R.array.times7,
+                R.array.times8, R.array.times9, R.array.times10};
+
+        String strChoice[] = new String[4];
+        strChoice = getResources().getStringArray(intTimes[intButton]);
+        radChoice1.setText(strChoice[0]);
+        radChoice2.setText(strChoice[1]);
+        radChoice3.setText(strChoice[2]);
+        radChoice4.setText(strChoice[3]);
+        
+    }
 
     private void radioController() {
         ragChoice.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -105,6 +144,12 @@ public class MainActivity extends ActionBarActivity {
         } else {
 
             intIndex += 1;
+
+            //Call View
+            txtQuestion.setText(Integer.toString(intIndex + 1) + ". What is this ?" );
+
+            //Controller Call Model
+            objMyModel.setIntButton(intIndex);
 
         }
     }
