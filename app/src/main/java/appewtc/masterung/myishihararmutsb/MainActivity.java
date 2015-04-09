@@ -1,5 +1,6 @@
 package appewtc.masterung.myishihararmutsb;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,7 +21,7 @@ public class MainActivity extends ActionBarActivity {
     private RadioGroup ragChoice;
     private RadioButton radChoice1, radChoice2, radChoice3, radChoice4;
     private Button btnAnswer;
-    private int intRadio;
+    private int intRadio, intIndex;
 
 
     @Override
@@ -84,8 +85,26 @@ public class MainActivity extends ActionBarActivity {
             //Show Dialog
             MyAlertDialog objMyAlertDialog = new MyAlertDialog();
             objMyAlertDialog.myDialog(MainActivity.this);
-            
+
         } else {
+
+            //Check Times
+            checkTimes();
+
+        }
+    }
+
+    private void checkTimes() {
+        if (intIndex == 9) {
+
+            // Intent to ShowScore
+            Intent objIntent = new Intent(MainActivity.this, ShowScoreActivity.class);
+            startActivity(objIntent);
+            finish();
+
+        } else {
+
+            intIndex += 1;
 
         }
     }
