@@ -1,5 +1,7 @@
 package appewtc.masterung.myishihararmutsb;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -8,11 +10,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class ShowScoreActivity extends ActionBarActivity {
 
     //Explicit
     private TextView txtShowScore;
+    private String strMyScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +30,7 @@ public class ShowScoreActivity extends ActionBarActivity {
         txtShowScore = (TextView) findViewById(R.id.txtShowScore);
         int intMyScore = getIntent().getExtras().getInt("Score");
         txtShowScore.setText(Integer.toString(intMyScore) + "/10");
+        strMyScore = Integer.toString(intMyScore);
 
     }   // onCreate
 
@@ -45,16 +53,42 @@ public class ShowScoreActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.itemSaveData:
+                confirmDialog();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void confirmDialog() {
+
+        //Get Time
+        DateFormat objDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date objDate = new Date();
+        String strMyDateTime = objDateFormat.format(objDate);
+
+        AlertDialog.Builder objBuilder = new AlertDialog.Builder(this);
+        objBuilder.setIcon(R.drawable.icon_question);
+        objBuilder.setTitle("ยืนยันการบันทึก");
+        objBuilder.setMessage("เวลา = " + strMyDateTime + "\n" + "คะแนน = " + strMyScore + " แต้ม");
+        objBuilder.setCancelable(false);
+        objBuilder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        objBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        objBuilder.show();
+
+
     }
 }   // Main Class
