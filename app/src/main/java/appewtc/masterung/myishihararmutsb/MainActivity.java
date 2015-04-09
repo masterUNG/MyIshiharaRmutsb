@@ -127,11 +127,15 @@ public class MainActivity extends ActionBarActivity {
 
         } else {
 
+
+
             //Check Score
             checkScore();
 
             //Check Times
             checkTimes();
+
+            ragChoice.clearCheck();
 
         }
     }
