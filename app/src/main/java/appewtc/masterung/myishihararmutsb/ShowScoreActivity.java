@@ -20,6 +20,7 @@ public class ShowScoreActivity extends ActionBarActivity {
     //Explicit
     private TextView txtShowScore;
     private String strMyScore;
+    private IshiharaTABLE objIshiharaTABLE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,9 @@ public class ShowScoreActivity extends ActionBarActivity {
         int intMyScore = getIntent().getExtras().getInt("Score");
         txtShowScore.setText(Integer.toString(intMyScore) + "/10");
         strMyScore = Integer.toString(intMyScore);
+
+        //Create and Connected
+        objIshiharaTABLE = new IshiharaTABLE(this);
 
     }   // onCreate
 
