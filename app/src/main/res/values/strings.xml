@@ -7,4 +7,7 @@
     <string name="title_activity_show_score">ShowScoreActivity</string>
     <string name="title_activity_read_all_data">ReadAllDataActivity</string>
     <string name="title_activity_show_detail">ShowDetailActivity</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="title_activity_about_me">AboutMeActivity</string>
+    <string name="name">มาสเตอร์ อึ่ง</string>
 </resources>

@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="appewtc.masterung.myishihararmutsb.AboutMeActivity"
+    android:background="@drawable/bg21">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Codding By"
+            android:id="@+id/textView3"
+            android:textSize="@dimen/h1"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/text" />
+
+        <ImageView
+            android:layout_width="@dimen/image"
+            android:layout_height="@dimen/image"
+            android:id="@+id/imageView4"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/master_android" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:id="@+id/textView4"
+            android:layout_gravity="center_horizontal"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="http://androidthai.in;th"
+            android:id="@+id/txtWebsite"
+            android:onClick="clickWebsite"
+            android:textSize="20dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/text"
+            android:clickable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Call 0818595309"
+            android:id="@+id/txtPhone"
+            android:onClick="clickPhone"
+            android:textSize="20dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/text"
+            android:clickable="true" />
+    </LinearLayout>
+</RelativeLayout>

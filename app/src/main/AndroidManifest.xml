@@ -2,21 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="appewtc.masterung.myishihararmutsb" >
 
+    <uses-permission android:name="ANDROID.PERMISSION.CALL_PHONE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ishihara_10"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" >
+        <activity android:name=".SplashScreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".ShowScoreActivity"
             android:label="@string/title_activity_show_score" >
@@ -28,6 +28,10 @@
         <activity
             android:name=".ShowDetailActivity"
             android:label="@string/title_activity_show_detail" >
+        </activity>
+        <activity
+            android:name=".AboutMeActivity"
+            android:label="@string/title_activity_about_me" >
         </activity>
     </application>
 
