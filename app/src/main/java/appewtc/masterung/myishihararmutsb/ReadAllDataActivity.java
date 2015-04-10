@@ -1,10 +1,13 @@
 package appewtc.masterung.myishihararmutsb;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 
@@ -19,6 +22,22 @@ public class ReadAllDataActivity extends ListActivity{
         createListView();
 
     }   // onCreate
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+        Cursor objCursor = (Cursor) l.getItemAtPosition(position);
+        String strTimeData = objCursor.getString(objCursor.getColumnIndex(IshiharaTABLE.COLUMN_TIMEDATE));
+        String strScore = objCursor.getString(objCursor.getColumnIndex(IshiharaTABLE.COLUMN_SCORE));
+
+        //Intent to Show Detail
+        Intent objIntent = new Intent(ReadAllDataActivity.this, ShowDetailActivity.class);
+        objIntent.putExtra("Time", strTimeData);
+        objIntent.putExtra("MyScore", strScore);
+        startActivity(objIntent);
+
+    }
 
     private void createListView() {
         IshiharaTABLE objIshiharaTABLE = new IshiharaTABLE(this);

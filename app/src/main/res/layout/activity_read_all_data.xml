@@ -28,7 +28,8 @@
                 android:text="New Text"
                 android:id="@+id/txtShowTime"
                 android:textSize="20dp"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

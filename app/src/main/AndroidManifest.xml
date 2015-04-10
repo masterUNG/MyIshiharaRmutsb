@@ -25,6 +25,10 @@
             android:name=".ReadAllDataActivity"
             android:label="@string/title_activity_read_all_data" >
         </activity>
+        <activity
+            android:name=".ShowDetailActivity"
+            android:label="@string/title_activity_show_detail" >
+        </activity>
     </application>
 
 </manifest>
