@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="appewtc.masterung.myishihararmutsb.ShowScoreActivity">
 
-    <item android:id="@+id/itemSaveData" android:title="Save Score on SQLite"/>
+    <item
+        android:id="@+id/itemSaveData"
+        android:title="Save Score on SQLite" />
+    <item
+        android:id="@+id/itemReadAll"
+        android:title="Read All Data" />
 
 </menu>

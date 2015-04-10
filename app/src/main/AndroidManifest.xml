@@ -21,6 +21,10 @@
             android:name=".ShowScoreActivity"
             android:label="@string/title_activity_show_score" >
         </activity>
+        <activity
+            android:name=".ReadAllDataActivity"
+            android:label="@string/title_activity_read_all_data" >
+        </activity>
     </application>
 
 </manifest>

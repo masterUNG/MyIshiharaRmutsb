@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -62,6 +63,11 @@ public class ShowScoreActivity extends ActionBarActivity {
             case R.id.itemSaveData:
                 confirmDialog();
                 break;
+            case R.id.itemReadAll:
+                Intent objIntent = new Intent(ShowScoreActivity.this, ReadAllDataActivity.class);
+                startActivity(objIntent);
+                finish();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
@@ -72,7 +78,7 @@ public class ShowScoreActivity extends ActionBarActivity {
         //Get Time
         DateFormat objDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date objDate = new Date();
-        String strMyDateTime = objDateFormat.format(objDate);
+        final String strMyDateTime = objDateFormat.format(objDate);
 
         AlertDialog.Builder objBuilder = new AlertDialog.Builder(this);
         objBuilder.setIcon(R.drawable.icon_question);
@@ -88,7 +94,12 @@ public class ShowScoreActivity extends ActionBarActivity {
         objBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+
+                objIshiharaTABLE.addNewData(strMyDateTime, strMyScore);
+
                 dialogInterface.dismiss();
+
+                Toast.makeText(ShowScoreActivity.this, "Update New Value Finish", Toast.LENGTH_SHORT).show();
             }
         });
         objBuilder.show();
